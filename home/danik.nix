@@ -30,11 +30,17 @@
     proton-vpn-cli
     nerd-fonts.jetbrains-mono
     apostrophe
+    gnome-tweaks
+    monero-gui
+    blender
+    glab
+    opencode
   ];
 
   imports = [
     ./vim.nix
     ./gnome.nix
+    ./opencode.nix
   ];
 
   home.stateVersion = "26.05";

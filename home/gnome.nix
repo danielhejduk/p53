@@ -15,6 +15,14 @@
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       accent-color = "orange";
+      # GNOME Tweaks > Keyboard & Mouse > Middle Click Paste
+      gtk-enable-primary-paste = true;
+    };
+
+    # GNOME Tweaks > Window Titlebars > Minimize/Maximize; the default layout
+    # is "appmenu:close".
+    "org/gnome/desktop/wm/preferences" = {
+      button-layout = "appmenu:minimize,maximize,close";
     };
 
     # Both light and dark keys are set; GNOME picks by theme, so setting only

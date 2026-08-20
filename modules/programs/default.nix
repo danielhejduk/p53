@@ -17,6 +17,7 @@
     python3
     nodejs
     bun
+    go
   ];
 
   # Globally installed bun packages. Set at system level because home-manager
