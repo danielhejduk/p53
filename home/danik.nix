@@ -35,6 +35,7 @@
     blender
     glab
     opencode
+    thunderbird
   ];
 
   imports = [

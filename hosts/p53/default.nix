@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   imports = [
     ./hardware-configuration.nix
@@ -14,6 +16,19 @@
   ];
 
   networking.hostName = "p53";
+
+  # Diagnostic tooling for the intermittent AC-adapter blip under GPU load:
+  # acpi_listen shows live ACPI/EC events (e.g. distinguishing a real AC
+  # off-line event from an unhandled thinkpad_acpi HKEY event), and sensors
+  # exposes voltage/power rails if the board reports them.
+  environment.systemPackages = with pkgs; [
+    acpica-tools
+    lm_sensors
+  ];
+
+  # Verbose thinkpad_acpi logging to capture more context around unhandled
+  # HKEY events (e.g. 0x6031) if the AC blip recurs.
+  boot.extraModprobeConfig = "options thinkpad_acpi debug=0xffff";
 
   users.users.danik = {
     isNormalUser = true;
